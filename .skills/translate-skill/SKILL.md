@@ -118,8 +118,28 @@ When refreshing from upstream:
 3. Translate new and changed prose-bearing files.
 4. Copy or preserve non-translatable support files only when they are in scope.
 5. Preserve the localized repo’s README positioning and install path.
-6. Flag ambiguous files, removed files, or risky transformations for maintainer review.
-7. Summarize translated files, copied files, removed files, skipped files, and review flags.
+6. Add a concise entry to the README sync log.
+7. Flag ambiguous files, removed files, or risky transformations for maintainer review.
+8. Summarize translated files, copied files, removed files, skipped files, and review flags.
+
+## README sync log
+
+Each upstream refresh should update the top-level `README.md` sync log with one short entry.
+
+The entry should include:
+
+- the refresh date in `YYYY-MM-DD` format
+- the upstream source revision, usually `mattpocock/skills@<short-sha>`
+- the local sync commit, if it already exists; otherwise use a short pending note and replace it after commit
+- a one-sentence description of the visible content change
+
+Keep this record concise. Do not move the detailed translation workflow into the README; link to this skill instead.
+
+Example:
+
+```text
+- 2026-05-09: Synced upstream `mattpocock/skills@733d312`, local commit `c9fe120`. Added Chinese translations for `prototype` and `in-progress` content, and refreshed public skill indexes.
+```
 
 ## Required output format for review
 
@@ -139,6 +159,9 @@ Removed or stale files:
 - ...
 
 Review flags:
+- ...
+
+README sync log:
 - ...
 
 Invariant checks:
