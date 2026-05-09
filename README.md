@@ -1,19 +1,3 @@
-# 翻译同步指南
-
-本仓库使用 `.skills/translate-skill/SKILL.md` 同步上游 `mattpocock/skills` 的内容。同步时把上游当作英文内容来源，而不是 Git 历史来源；不要 merge、rebase 或导入上游 issue、PR、label、release、Actions、branch 等仓库管理状态。
-
-推荐流程：
-
-1. 获取或更新上游内容，例如 `git fetch upstream main`。
-2. 对比上游和本仓库的 `README.md`、`CLAUDE.md`、`CONTEXT.md`、`skills/**`、`docs/**`、`.out-of-scope/**`。
-3. 使用 `.skills/translate-skill/SKILL.md` 的规则翻译新增或变更的自然语言内容。
-4. 保留目录名、skill name、frontmatter keys、命令、代码块、路径、URL、package/tool/API identifiers。
-5. 用户可见的安装命令必须指向 `vinvcn/mattpocock-skills-zh-CN`，不要指向 `mattpocock/skills`。
-6. 更新顶层 `README.md`、bucket `README.md` 和 `.claude-plugin/plugin.json`，确保 `engineering/`、`productivity/`、`misc/` 中的公开 skills 都可发现。
-7. 运行 `node scripts/check-translation.mjs`，并用 `git diff` 人工复核 Markdown 结构、frontmatter、命令和 install paths。
-
-如果内容是否 behavior-critical 不确定，保留原文并标记给维护者复核。
-
 <p>
   <a href="https://www.aihero.dev/s/skills-newsletter">
     <picture>
@@ -28,9 +12,13 @@
 
 [![skills.sh](https://skills.sh/b/vinvcn/mattpocock-skills-zh-CN)](https://skills.sh/vinvcn/mattpocock-skills-zh-CN)
 
-这是 [`mattpocock/skills`](https://github.com/mattpocock/skills) 的简体中文本地化 fork。原项目版权归 Matt Pocock 所有，并按 MIT License 授权。本 fork 保留原始许可证，并额外提供中文翻译，方便中文用户使用。
+这是 [`mattpocock/skills`](https://github.com/mattpocock/skills) 的简体中文本地化版本。文档和技能说明已翻译；目录名、技能名、命令、代码块、路径和工具标识保持不变，以免破坏安装和运行行为。
 
-> 说明：本项目翻译了文档和技能说明，但保留了目录名、技能名、命令、代码块和工具相关标识，以避免破坏安装和运行行为。
+本仓库按内容刷新方式同步上游，不同步上游 Git 历史或仓库管理状态。维护规则见 [`.skills/translate-skill/SKILL.md`](./.skills/translate-skill/SKILL.md)。
+
+## 同步记录
+
+- 2026-05-09：同步上游 `mattpocock/skills@733d312`，本地提交 `c9fe120`。新增 `prototype` 与 `in-progress` 内容的中文翻译，并更新公开 skill 索引。
 
 我每天用于真实工程工作的 agent skills，不是 vibe coding。
 
