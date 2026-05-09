@@ -26,18 +26,13 @@ description: 根据 CONTEXT.md 中的 domain language 和 docs/adr/ 中的 decis
 - **The interface is the test surface.**
 - **One adapter = hypothetical seam. Two adapters = real seam.**
 
-这个 skill 会参考项目的 domain model：`CONTEXT.md` 和任何 `docs/adr/`。domain language 为好的 seams 命名；ADRs 记录 skill 不应重新争论的决策。见 [CONTEXT-FORMAT.md](../domain-model/CONTEXT-FORMAT.md) 和 [ADR-FORMAT.md](../domain-model/ADR-FORMAT.md)。
+这个 skill 会参考项目的 domain model。Domain language 为好的 seams 命名；ADRs 记录 skill 不应重新争论的决策。
 
 ## Process
 
 ### 1. Explore
 
-先读现有文档：
-
-- `CONTEXT.md`（或多 context repo 中的 `CONTEXT-MAP.md` + 每个 `CONTEXT.md`）
-- `docs/adr/` 中相关 ADRs（以及任何 context-scoped `docs/adr/` 目录）
-
-如果这些文件不存在，静默继续；不要预先强调缺失，也不要建议创建。
+先读取项目的 domain glossary 和你将触碰区域的任何 ADR。
 
 然后使用 Agent tool 和 `subagent_type=Explore` 遍历 codebase。不要死套启发式规则；自然探索并记录你感到 friction 的地方：
 
@@ -70,7 +65,7 @@ description: 根据 CONTEXT.md 中的 domain language 和 docs/adr/ 中的 decis
 
 决策成形时内联产生 side effects：
 
-- **用 `CONTEXT.md` 中没有的概念命名 deepened module？** 把 term 加到 `CONTEXT.md`，纪律同 `/domain-model`（见 [CONTEXT-FORMAT.md](../domain-model/CONTEXT-FORMAT.md)）。文件不存在就懒创建。
+- **用 `CONTEXT.md` 中没有的概念命名 deepened module？** 把 term 加到 `CONTEXT.md`，纪律同 `/grill-with-docs`（见 [CONTEXT-FORMAT.md](../grill-with-docs/CONTEXT-FORMAT.md)）。文件不存在就懒创建。
 - **对话中收紧了模糊 term？** 立刻更新 `CONTEXT.md`。
-- **用户用有分量的理由拒绝 candidate？** 提议 ADR，表述为：_"要我把这记录成 ADR，避免未来 architecture reviews 再次建议它吗？"_ 只有当未来 explorer 真的需要这个理由来避免重复建议时才提议；短期理由（“现在不值得”）和显而易见的理由跳过。见 [ADR-FORMAT.md](../domain-model/ADR-FORMAT.md)。
+- **用户用有分量的理由拒绝 candidate？** 提议 ADR，表述为：_"要我把这记录成 ADR，避免未来 architecture reviews 再次建议它吗？"_ 只有当未来 explorer 真的需要这个理由来避免重复建议时才提议；短期理由（“现在不值得”）和显而易见的理由跳过。见 [ADR-FORMAT.md](../grill-with-docs/ADR-FORMAT.md)。
 - **想探索 deepened module 的替代 interfaces？** 见 [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md)。

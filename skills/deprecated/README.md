@@ -5,5 +5,4 @@
 - [design-an-interface](./design-an-interface/SKILL.md) — 生成多个 interface 设计方案。
 - [qa](./qa/SKILL.md) — 交互式 QA session。
 - [request-refactor-plan](./request-refactor-plan/SKILL.md) — 创建 refactor plan。
-- [triage-issue](./triage-issue/SKILL.md) — 分诊问题并生成 TDD 修复计划。
 - [ubiquitous-language](./ubiquitous-language/SKILL.md) — 提取 DDD ubiquitous language glossary。

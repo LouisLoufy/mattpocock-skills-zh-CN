@@ -13,7 +13,7 @@ _Avoid_: backlog manager, backlog backend, issue host
 _Avoid_: ticket（仅在引用外部系统称其为 ticket 时使用）
 
 **Triage role**:
-在 triage 期间应用到 **Issue** 上的规范 state-machine label（例如 `needs-triage`、`ready-for-afk`）。每个 role 都会通过 `docs/agents/triage-labels.md` 映射到 **Issue tracker** 中真实的 label 字符串。
+在 triage 期间应用到 **Issue** 上的规范 state-machine label（例如 `needs-triage`、`ready-for-agent`）。每个 role 都会通过 `docs/agents/triage-labels.md` 映射到 **Issue tracker** 中真实的 label 字符串。
 
 ## Relationships
 

@@ -1,21 +1,23 @@
 ---
 name: to-issues
-description: 使用 tracer-bullet vertical slices，把 plan、spec 或 PRD 拆成可独立领取的 GitHub issues。Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
+description: 使用 tracer-bullet vertical slices，把 plan、spec 或 PRD 拆成项目 issue tracker 上可独立领取的 issues。Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
 ---
 
 # To Issues
 
-使用 vertical slices（tracer bullets）把计划拆成可独立领取的 GitHub issues。
+使用 vertical slices（tracer bullets）把计划拆成可独立领取的 issue tracker issues。
+
+Issue tracker 和 triage label vocabulary 应该已经提供给你；如果没有，运行 `/setup-matt-pocock-skills`。
 
 ## Process
 
 ### 1. Gather context
 
-基于 conversation context 中已有内容工作。如果用户传入 GitHub issue number 或 URL 作为参数，用 `gh issue view <number>`（带 comments）获取它。
+基于 conversation context 中已有内容工作。如果用户传入 issue reference（issue number、URL 或 path）作为参数，从 issue tracker 获取它，并读取完整 body 和 comments。
 
 ### 2. Explore the codebase (optional)
 
-如果还没探索 codebase，就先探索，以理解代码当前状态。
+如果还没探索 codebase，就先探索，以理解代码当前状态。Issue titles 和 descriptions 应使用项目 domain glossary vocabulary，并遵守相关 ADRs。
 
 ### 3. Draft vertical slices
 
@@ -47,20 +49,22 @@ Slices 可以是 `HITL` 或 `AFK`。HITL slices 需要人类交互，例如 arch
 
 迭代直到用户批准 breakdown。
 
-### 5. Create the GitHub issues
+### 5. Publish the issues to the issue tracker
 
-对每个批准的 slice，使用 `gh issue create` 创建 GitHub issue。使用下面的 issue body template。
+对每个批准的 slice，把新 issue 发布到 issue tracker。使用下面的 issue body template。这些 issues 被视为已准备好给 AFK agents 接手；除非另有指示，发布时应用正确的 triage label。
 
-按 dependency order 创建 issues（blockers first），这样可以在 "Blocked by" 字段引用真实 issue numbers。
+按 dependency order 发布 issues（blockers first），这样可以在 "Blocked by" 字段引用真实 issue identifiers。
 
 <issue-template>
 ## Parent
 
-#<parent-issue-number>（如果 source 是 GitHub issue；否则省略本 section）
+对 issue tracker 中 parent issue 的引用（如果 source 是现有 issue；否则省略本 section）。
 
 ## What to build
 
 这个 vertical slice 的简洁描述。描述 end-to-end behavior，不要按 layer-by-layer implementation 描述。
+
+避免具体 file paths 或 code snippets；它们很快会过时。例外：如果 prototype 产出的 snippet 比 prose 更精确地编码了某个决策（state machine、reducer、schema、type shape），可以内联在这里，并简短说明它来自 prototype。保留决策密集部分，不要放完整 working demo。
 
 ## Acceptance criteria
 
@@ -70,7 +74,7 @@ Slices 可以是 `HITL` 或 `AFK`。HITL slices 需要人类交互，例如 arch
 
 ## Blocked by
 
-- Blocked by #<issue-number>（如果有）
+- 对 blocking issue 的引用（如果有）
 
 如果没有 blocker，写 "None - can start immediately"。
 

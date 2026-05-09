@@ -6,7 +6,7 @@
 
 - **Create an issue**: `glab issue create --title "..." --description "..."`。多行 description 使用 heredoc。传入 `--description -` 可打开编辑器。
 - **Read an issue**: `glab issue view <number> --comments`。使用 `-F json` 获取 machine-readable output。
-- **List issues**: `glab issue list --state opened -F json`，按需使用 `--label` filters。注意 GitLab 的 state 值使用 `opened`（不是 `open`）。
+- **List issues**: `glab issue list -F json`，按需使用 `--label` filters。
 - **Comment on an issue**: `glab issue note <number> --message "..."`。GitLab 把 comments 称为 “notes”。
 - **Apply / remove labels**: `glab issue update <number> --label "..."` / `--unlabel "..."`。多个 labels 可以逗号分隔，也可以重复 flag。
 - **Close**: `glab issue close <number>`。`glab issue close` 不接受 closing comment，因此先用 `glab issue note <number> --message "..."` 发布说明，再 close。

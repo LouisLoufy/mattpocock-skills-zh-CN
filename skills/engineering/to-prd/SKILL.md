@@ -1,13 +1,15 @@
 ---
 name: to-prd
-description: 将当前 conversation context 转成 PRD 并提交为 GitHub issue。Use when user wants to create a PRD from the current context.
+description: 将当前 conversation context 转成 PRD 并发布到项目 issue tracker。Use when user wants to create a PRD from the current context.
 ---
 
 这个 skill 使用当前 conversation context 和 codebase understanding 产出 PRD。**不要**访谈用户，只综合你已经知道的内容。
 
+Issue tracker 和 triage label vocabulary 应该已经提供给你；如果没有，运行 `/setup-matt-pocock-skills`。
+
 ## Process
 
-1. 如果还没有探索 repo，先探索它以理解 codebase 当前状态。
+1. 如果还没有探索 repo，先探索它以理解 codebase 当前状态。在 PRD 中始终使用项目 domain glossary vocabulary，并遵守相关 ADRs。
 
 2. 草拟完成 implementation 需要 build 或 modify 的主要 modules。主动寻找可以抽出 deep modules 并独立测试的机会。
 
@@ -15,7 +17,7 @@ Deep module（相对 shallow module）会把大量功能封装在一个简单、
 
 与用户确认这些 modules 是否符合预期。与用户确认他们希望为哪些 modules 写 tests。
 
-3. 使用下面模板写 PRD，并提交为 GitHub issue。
+3. 使用下面模板写 PRD，并发布到项目 issue tracker。应用 `ready-for-agent` triage label；不需要额外 triage。
 
 <prd-template>
 
@@ -52,6 +54,8 @@ Deep module（相对 shallow module）会把大量功能封装在一个简单、
 - Specific interactions
 
 不要包含具体 file paths 或 code snippets。它们可能很快过时。
+
+例外：如果 prototype 产出的 snippet 比 prose 更精确地编码了某个决策（state machine、reducer、schema、type shape），可以内联到相关 decision 中，并简短说明它来自 prototype。只保留决策密集部分，不要放完整 working demo。
 
 ## Testing Decisions
 
