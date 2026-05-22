@@ -16,16 +16,6 @@
 
 本仓库的最近一次同步翻译由 OpenAI Codex（GPT-5 coding agent）执行，并由仓库维护者通过提交记录纳入 `main`。翻译策略是 **skill-guided content localization**：把上游 `mattpocock/skills` 当作英文内容来源，只翻译自然语言说明，保留目录名、skill name、frontmatter key、命令、代码块、路径、URL、package/tool/API identifiers 和行为关键 labels。用户可见的安装路径统一保持为 `vinvcn/mattpocock-skills-zh-CN`。
 
-skills.sh 的排行榜基于 CLI 的匿名安装遥测；因此这些页面适合作为实时热度参考，数字以页面显示为准。
-
-使用与热度参考：
-
-- 中文版 skills.sh 页面：[`vinvcn/mattpocock-skills-zh-CN`](https://skills.sh/vinvcn/mattpocock-skills-zh-CN)
-- 上游 skills.sh 页面：[`mattpocock/skills`](https://skills.sh/mattpocock/skills)
-- skills.sh 总榜与排行榜：[skills.sh](https://skills.sh/)
-- skills.sh 安装与 registry 说明：[skills.sh docs](https://skills.sh/docs)
-- 上游 newsletter 社区入口：[AI Hero Skills Newsletter](https://www.aihero.dev/s/skills-newsletter)
-
 ## 发布记录与验证
 
 ### 发布记录
