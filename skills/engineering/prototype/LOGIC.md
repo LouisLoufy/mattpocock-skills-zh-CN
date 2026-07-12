@@ -36,7 +36,7 @@
 
 选择最适合问题的形状，而不是最容易接到 TUI 上的形状。保持 pure：不要 I/O，不要 terminal code，不要用 `console.log` 做 control flow。TUI import 它并调用它；不要反向依赖。
 
-这让 prototype 在自身生命周期之后仍有价值。当问题被回答后，验证过的 reducer / machine / function set 可以被搬进真实 module；TUI shell 删除。
+这让 prototype 在自身生命周期之后仍有价值：问题被回答后，验证过的 reducer / machine / function set 可以独立搬进真实 module。
 
 ### 4. Build the smallest TUI that exposes the state
 
@@ -66,9 +66,9 @@ Behaviour：
 
 给用户 run command。让他们自己驱动；真正有趣的时刻是他们说 “wait, that shouldn't be possible” 或 “huh, I assumed X would be different” 的时候。这些是*想法*里的 bug，也正是 prototype 的目的。如果他们想添加新 actions，就添加。Prototypes 会演进。
 
-### 7. Capture the answer
+### 7. Capture the answer and the prototype
 
-Prototype 完成任务后，唯一值得保留的是问题的答案。如果用户在线，询问它教会了他们什么。如果不在线，在 prototype 旁边留下 `NOTES.md`，让答案可以在 prototype 被删除前补上（或由你在看过 session 后补上）。
+Prototype 回答问题后，capture answer，再按 [SKILL](SKILL.md) 描述的方式 capture prototype。Logic-specific mapping：验证过的 reducer / machine / function set 搬进真实 module（吸收 decision）；TUI shell 跟随 prototype 留在作为 primary source 的 throwaway branch。
 
 ## Anti-patterns
 

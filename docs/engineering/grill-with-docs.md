@@ -31,7 +31,7 @@ npx skills update grill-with-docs
 它是 main flow 的入口：
 
 ```txt
-grill-with-docs -> to-prd -> to-issues -> implement -> code-review
+grill-with-docs -> to-spec -> to-tickets -> implement -> code-review
 ```
 
 完整地图见 [ask-matt](https://aihero.dev/skills-ask-matt)。

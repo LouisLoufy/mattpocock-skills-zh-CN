@@ -20,16 +20,16 @@ disable-model-invocation: true
    - **`/prototype`** 用 throwaway code 回答问题；
    - **`/handoff`** 把学到的内容带回来，并在原始 idea thread 中引用它。
 3. **分支 - 这是 multi-session build 吗？**
-   - **是** -> **`/to-prd`**（把 thread 变成 PRD）-> **`/to-issues`**（把 PRD 拆成可独立领取的 issues）。因为 issues 彼此独立，**每个 issue 之间都要清空 context**：每个 issue 启动一个 fresh session，把 PRD 和单个 issue 传给 **`/implement`**。
+   - **是** -> **`/to-spec`**（把 thread 变成 spec），再用 **`/to-tickets`** 拆成 tracer-bullet tickets，每个 ticket 声明 **blocking edges**。Local tracker 在 `.scratch/<feature>/issues/` 下每 ticket 一个文件，手动按 blockers-first 处理；真实 tracker 用 native blocking links，因此 blockers 已完成的 ticket 都可领取。每 ticket 启动一次 **`/implement`**，并在 tickets 之间**清空 context**。
    - **否** -> 在当前 context window 里直接运行 **`/implement`**。
 
    无论哪种方式，**`/implement`** 都会在内部驱动 **`/tdd`** 构建每个 issue：一次一个 red-green slice；然后用 **`/code-review`** 收尾，对 diff 做 Standards + Spec 双轴 review，再提交。只想 test-first 构建一个具体 behavior 时，单独用 **`/tdd`**；想按固定点 review branch 或 PR 时，单独用 **`/code-review`**。
 
 ### Context hygiene
 
-步骤 1 到 `/to-issues` 要留在 **同一个未中断的 context window** 中；不要 compact 或 clear，这样 grilling、PRD 和 issues 才能建立在同一组思考之上。之后每个 `/implement` 都从 fresh session 开始，只基于对应 issue 工作。
+步骤 1 到 `/to-tickets` 要留在 **同一个未中断的 context window** 中；不要 compact 或 clear，这样 grilling、spec 和 tickets 才能建立在同一组思考之上。之后每个 `/implement` 都从 fresh session 开始，只基于对应 ticket 工作。
 
-限制来自 **[smart zone](https://www.aihero.dev/ai-coding-dictionary/smart-zone)**：在该窗口（最新模型大约 120k tokens）内，模型还能保持敏锐推理。如果 session 在 `/to-issues` 前接近这个区间，不要硬撑降级状态；用 `/handoff`，然后在 fresh thread 中继续。
+限制来自 **[smart zone](https://www.aihero.dev/ai-coding-dictionary/smart-zone)**：在该窗口（最新模型大约 120k tokens）内，模型还能保持敏锐推理。如果 session 在 `/to-tickets` 前接近这个区间，不要硬撑降级状态；用 `/handoff`，然后在 fresh thread 中继续。
 
 ## On-ramps
 
@@ -37,7 +37,9 @@ disable-model-invocation: true
 
 - **Bugs 和 requests 堆积** -> **`/triage`**。它通过 triage roles 推进 issues，并产出 agent-ready issues，之后由 **`/implement`** 领取。
 
-  Triage 只用于 **不是你创建的** issues：bug reports、incoming feature requests，以及任何原始进入的内容。`/to-issues` 产出的 issues 已经是 agent-ready，不要再 triage。
+  Triage 只用于 **不是你创建的** issues：bug reports、incoming feature requests，以及任何原始进入的内容。`/to-tickets` 产出的 tickets 已经是 agent-ready，不要再 triage。
+
+- **巨大而模糊的 effort——greenfield project 或巨大 feature build，一个 session 装不下** -> **`/wayfinder`**。当从当前位置到 destination 的路还看不见时，它在 issue tracker 上绘制调查 tickets 的 **shared map**，逐个解决，产出 **decisions, not deliverables**，直到 fog 被推开、路径清晰。然后在 **`/to-spec`** 汇入 main flow（如果 effort 后来发现足够小，也可直接进入 **`/implement`**）。`/grill-with-docs` 用于一个 session 能装下的想法，wayfinder 用于装不下的想法。
 
 - **Something's broken** -> **`/diagnosing-bugs`**。用于难处理的问题：第一眼看不出的 bug、间歇性 flake、夹在两个 known-good states 之间的 regression。它在拥有 **tight feedback loop** 前拒绝空想，也就是一个已经能在 _这个_ bug 上变红的命令；然后用 regression test 修复。如果复盘发现真正问题是没有好 seam 能锁住 bug，它会把后续交给 **`/improve-codebase-architecture`**。
 

@@ -5,7 +5,7 @@ import { execSync } from "node:child_process";
 const files = execSync("git ls-files", { encoding: "utf8" })
   .trim()
   .split("\n")
-  .filter(Boolean);
+  .filter((file) => file && fs.existsSync(file));
 
 let failed = false;
 function fail(file, msg) {

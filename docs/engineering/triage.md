@@ -14,7 +14,7 @@ npx skills update triage
 
 `triage` 通过一组 triage roles state machine 推进 issues，把原始 bug reports 和 feature requests 变成 agent-ready work。
 
-它只处理你没有创建的原始 incoming issues。由 `to-issues` 生成的 tickets 已经是 agent-ready，不应该再 triage。
+它只处理你没有创建的原始 incoming issues。由 `to-tickets` 生成的 tickets 已经是 agent-ready，不应该再 triage。
 
 ## When to reach for it
 

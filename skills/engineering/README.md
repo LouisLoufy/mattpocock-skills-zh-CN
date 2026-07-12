@@ -11,9 +11,10 @@
 - **[triage](./triage/SKILL.md)** - 通过 triage roles state machine 推进 issues。
 - **[improve-codebase-architecture](./improve-codebase-architecture/SKILL.md)** - 扫描 codebase 中的 deepening opportunities，生成可视化 HTML report，然后围绕你选中的候选项继续 grilling。
 - **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)** - 为 engineering skills 配置本仓库需要的 issue tracker、triage labels 与 domain docs 布局。每个 repo 运行一次。
-- **[to-issues](./to-issues/SKILL.md)** - 用 vertical slices 把计划、spec 或 PRD 拆成可独立领取的 issue tracker issues。
-- **[to-prd](./to-prd/SKILL.md)** - 把当前对话整理成 PRD 并发布到 issue tracker。
-- **[implement](./implement/SKILL.md)** - 基于 PRD 或 issue 集合实现一段工作。
+- **[to-spec](./to-spec/SKILL.md)** - 把当前对话整理成 spec 并发布到 issue tracker。
+- **[to-tickets](./to-tickets/SKILL.md)** - 把 plan、spec 或 conversation 拆成 tracer-bullet tickets，并声明 blocking edges。
+- **[wayfinder](./wayfinder/SKILL.md)** - 把超出单个 agent session 的大块工作规划成 issue tracker 上的调查 ticket 共享 map，逐一解决直到通往 destination 的路清晰。
+- **[implement](./implement/SKILL.md)** - 基于 spec 或 ticket 集合实现一段工作。
 
 ## Model-invoked
 

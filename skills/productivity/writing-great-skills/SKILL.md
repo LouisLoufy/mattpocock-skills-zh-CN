@@ -76,3 +76,4 @@ Skill 由两类内容构成：**steps** 与 **reference**。它可以全是 step
 - **Sediment** - 因为添加看似安全、删除看似有风险而沉积的 stale layers。
 - **Sprawl** - skill 太长，即使每一行都 live 且 unique。用 hierarchy 治疗：把 reference 放到 pointers 后，按 branch 或 sequence 拆分。
 - **No-op** - 模型默认就会做的 instruction。测试：它是否改变默认 behavior？弱 leading word（如 _be thorough_，当 agent 已经大致 thorough）就是 no-op；修法是换更强的词（如 _relentless_）。
+- **Negation** - 用禁止来引导会适得其反：_don't think of an elephant_ 点名了 elephant，让它更容易浮现。应 prompt **positive**：直接说明目标 behavior，让被禁止的行为不进入表述；只有无法正向表达的 hard guardrail 才保留 prohibition，而且仍要配上应该怎么做。

@@ -14,7 +14,7 @@ npx skills update ask-matt
 
 `ask-matt` 是本仓库 skills 的 router。你描述当前情境，它告诉你应该走哪个 skill 或 flow，以及按什么顺序运行。
 
-它本身不执行工作，不 grill、不写 PRD、不修 bug，只负责定位。它尤其用于 user-invoked skills，因为这些 skills 不会被模型自动触发，需要你知道何时输入它们。
+它本身不执行工作，不 grill、不写 spec、不修 bug，只负责定位。它尤其用于 user-invoked skills，因为这些 skills 不会被模型自动触发，需要你知道何时输入它们。
 
 ## When to reach for it
 
