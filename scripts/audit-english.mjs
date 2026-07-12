@@ -4,7 +4,7 @@ import { execSync } from "node:child_process";
 const files = execSync("git ls-files '*.md'", { encoding: "utf8" })
   .trim()
   .split("\n")
-  .filter(Boolean)
+  .filter((file) => file && fs.existsSync(file))
   .filter((file) => file !== "LICENSE.zh-CN.md");
 
 const allowed = [

@@ -1,10 +1,10 @@
 ---
 name: implement
-description: "基于 PRD 或 issue 集合实现一段工作。"
+description: "基于 spec 或 ticket 集合实现一段工作。"
 disable-model-invocation: true
 ---
 
-实现用户在 PRD 或 issues 中描述的工作。
+实现用户在 spec 或 tickets 中描述的工作。
 
 尽可能在预先认可的 seams 上使用 `/tdd`。
 

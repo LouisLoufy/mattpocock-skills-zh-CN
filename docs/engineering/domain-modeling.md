@@ -28,4 +28,4 @@ npx skills update domain-modeling
 
 ## Where it fits
 
-`domain-modeling` 是 vocabulary layer，常被 [grill-with-docs](https://aihero.dev/skills-grill-with-docs) 和 [wayfinder](https://github.com/vinvcn/mattpocock-skills-zh-CN/tree/main/skills/in-progress/wayfinder) 使用。完整地图见 [ask-matt](https://aihero.dev/skills-ask-matt)。
+`domain-modeling` 是 vocabulary layer，常被 [grill-with-docs](https://aihero.dev/skills-grill-with-docs) 和 [wayfinder](https://github.com/vinvcn/mattpocock-skills-zh-CN/tree/main/skills/engineering/wayfinder) 使用。完整地图见 [ask-matt](https://aihero.dev/skills-ask-matt)。

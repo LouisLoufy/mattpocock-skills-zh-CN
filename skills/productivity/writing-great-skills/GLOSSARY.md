@@ -158,6 +158,12 @@ _Failure mode._ 当前 step 尚未真正完成就结束，因为 agent 注意力
 
 _Avoid_: premature closure, the rush, rushing, shortcutting
 
+### Negation
+
+_Failure mode._ 用 prohibition 引导：告诉 agent *不要* 做什么，会把被禁止的 behavior 带进 context，反而让它更容易出现。_Don't think of an elephant_，于是满脑子都是 elephant；_never write verbose comments_，模型刚读到的 pattern 恰恰是 verbosity。Negation 是弱 modifier，会被强烈激活的 concept 压过，因此禁令读起来有一半像是在指示它去做那件事。它的 **leading word** 是 _elephant_：prohibition 带入 frame 的任何东西。修复方法：prompt **positive**，描述目标 behavior（“write one-line comments”），让被禁止的行为根本不被说出。只有某种行为无法用正面措辞表达、必须作为 hard guardrail 时，prohibition 才有存在价值；即使如此，也要配上 positive target，让注意力落到应该怎么做。
+
+_Avoid_: ironic rebound, don't-prompting, the pink elephant
+
 ## Pruning
 
 保持 skill 精瘦；每个 remedy 对应一个 failure。

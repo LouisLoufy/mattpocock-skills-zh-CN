@@ -20,7 +20,7 @@ npx skills update tdd
 
 输入 `/tdd`，或当任务适合 test-first、用户提到 “red-green-refactor”，或需要 integration tests 时由 agent 自动触发。
 
-当有具体 behavior 要构建，并希望 tests 能承受 refactor 时使用它。Behavior 还没钉住时，先用 [to-prd](https://aihero.dev/skills-to-prd)；问题主要是 interface shape 时，用 [codebase-design](https://aihero.dev/skills-codebase-design)。
+当有具体 behavior 要构建，并希望 tests 能承受 refactor 时使用它。Behavior 还没钉住时，先用 [to-spec](https://aihero.dev/skills-to-spec)；问题主要是 interface shape 时，用 [codebase-design](https://aihero.dev/skills-codebase-design)。
 
 ## Red-green, one slice at a time
 

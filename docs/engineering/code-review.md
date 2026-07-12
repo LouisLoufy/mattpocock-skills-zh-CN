@@ -12,7 +12,7 @@ npx skills update code-review
 
 ## What it does
 
-`code-review` 对 `HEAD` 与你给定 fixed point 之间的 diff 做双轴 review：**Standards** 检查代码是否符合仓库约定，**Spec** 检查它是否实现了来源 issue 或 PRD。
+`code-review` 对 `HEAD` 与你给定 fixed point 之间的 diff 做双轴 review：**Standards** 检查代码是否符合仓库约定，**Spec** 检查它是否实现了来源 issue 或 spec。
 
 它不会把两组 findings 合并成一个总 verdict。分开报告是核心约束，因为一个变更可能代码风格正确但做错需求，也可能需求正确但破坏约定。
 
@@ -24,7 +24,7 @@ npx skills update code-review
 
 ## Prerequisites
 
-Spec 轴线需要找到来源 spec：commit message 中的 issue reference、你传入的路径，或 `docs/` / `specs/` 下的 PRD。Issue tracker 配置来自 [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills)。找不到 spec 时，Spec 轴线会跳过并说明。
+Spec 轴线需要找到来源 spec：commit message 中的 issue reference、你传入的路径，或 `docs/` / `specs/` 下的 spec。Issue tracker 配置来自 [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills)。找不到 spec 时，Spec 轴线会跳过并说明。
 
 ## Two axes
 
@@ -41,7 +41,7 @@ Standards 使用仓库 standards，并始终带有 Fowler smell baseline；repo 
 `code-review` 是 main build chain 的尾部 review step：
 
 ```txt
-grill-with-docs -> to-prd -> to-issues -> implement -> code-review
+grill-with-docs -> to-spec -> to-tickets -> implement -> code-review
 ```
 
 它最接近 [implement](https://aihero.dev/skills-implement)；后者构建并在提交前调用它。完整地图见 [ask-matt](https://aihero.dev/skills-ask-matt)。

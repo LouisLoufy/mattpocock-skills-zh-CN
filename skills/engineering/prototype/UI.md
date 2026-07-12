@@ -97,12 +97,12 @@ Behaviour：
 
 ### 6. Capture the answer and clean up
 
-一旦某个 variant 胜出，记录它是哪一个以及为什么（commit message、ADR、issue，或如果 AFK 运行且用户尚未回应，就放在 prototype 旁边的 `NOTES.md`）。然后：
+一旦某个 variant 胜出，capture answer（哪个胜出以及为什么），再按 [SKILL](SKILL.md) 描述的方式 capture prototype。把 winner 折进真实 code，其余内容移到 throwaway branch，不要进入 main：
 
-- **Sub-shape A** — 删除失败 variants 和 switcher；把胜出的方案折进现有页面。
-- **Sub-shape B** — 把胜出的 variant 提升为真实 route，删除 throwaway route 和 switcher。
+- **Sub-shape A** — 把 winner 折进 existing page；从 main 中移除 losing variants 和 switcher。
+- **Sub-shape B** — 把 winning variant 提升为 real route；从 main 中移除 throwaway route 和 switcher。
 
-不要把 variant components 或 switcher 留在 repo 中。它们很快会腐烂，并误导下一个读者。
+完整 variants 集合是 primary source，应进入 throwaway branch，而不是垃圾桶；留在 main branch 的 variant components 和 switcher 会迅速腐烂并误导下一位读者。
 
 ## Anti-patterns
 

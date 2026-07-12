@@ -28,4 +28,4 @@ npx skills update research
 
 ## Where it fits
 
-它是可随时调用的 standalone，产物会喂给 [grilling](https://aihero.dev/skills-grilling)、[to-prd](https://aihero.dev/skills-to-prd) 或 design work。完整地图见 [ask-matt](https://aihero.dev/skills-ask-matt)。
+它是可随时调用的 standalone，产物会喂给 [grilling](https://aihero.dev/skills-grilling)、[to-spec](https://aihero.dev/skills-to-spec) 或 design work。完整地图见 [ask-matt](https://aihero.dev/skills-ask-matt)。
